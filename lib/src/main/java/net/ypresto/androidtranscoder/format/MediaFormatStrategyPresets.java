@@ -68,6 +68,16 @@ public class MediaFormatStrategyPresets {
         return new ExportPreset960x540Strategy();
     }
 
+    /**
+     * Preset 16/9 resolutions.
+     */
+    public static MediaFormatStrategy createAndroidSelected16By9FormatStrategy(
+            RequiredDimensions.Dimensions16By9 dimensions ,
+            int videoBitrate) {
+
+        return new AndroidSelected16By9FormatStrategy(dimensions, videoBitrate);
+    }
+
     private MediaFormatStrategyPresets() {
     }
 }
