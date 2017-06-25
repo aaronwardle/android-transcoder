@@ -27,7 +27,10 @@ class AndroidSelected16By9FormatStrategy implements MediaFormatStrategy {
 
         format.setInteger(MediaFormat.KEY_BIT_RATE, mVideoBitrate);
         format.setInteger(MediaFormat.KEY_FRAME_RATE, 30);
-        format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 3);
+        format.setInteger(MediaFormat.KEY_CAPTURE_RATE, 30); // new
+        format.setInteger(MediaFormat.KEY_BITRATE_MODE,
+                MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface); // new
+        format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 0); // 3
         format.setInteger(MediaFormat.KEY_COLOR_FORMAT,
                 MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
 
