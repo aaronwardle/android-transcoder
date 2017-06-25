@@ -53,10 +53,8 @@ public class TranscoderActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-
             case REQUEST_CODE_PICK: {
                 final File file;
-
                 if (resultCode == RESULT_OK) {
                     try {
                         File outputDir = new File(getExternalFilesDir(null), "outputs");
@@ -68,10 +66,8 @@ public class TranscoderActivity extends Activity {
                         Toast.makeText(this, "Failed to create temporary file.", Toast.LENGTH_LONG).show();
                         return;
                     }
-
                     ContentResolver resolver = getContentResolver();
                     final ParcelFileDescriptor parcelFileDescriptor;
-
                     try {
                         parcelFileDescriptor = resolver.openFileDescriptor(data.getData(), "r");
                     } catch (FileNotFoundException e) {
@@ -79,12 +75,10 @@ public class TranscoderActivity extends Activity {
                         Toast.makeText(TranscoderActivity.this, "File not found.", Toast.LENGTH_LONG).show();
                         return;
                     }
-
                     final FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                     final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
                     progressBar.setMax(PROGRESS_BAR_MAX);
                     final long startTime = SystemClock.uptimeMillis();
-
                     MediaTranscoder.Listener listener = new MediaTranscoder.Listener() {
                         @Override
                         public void onTranscodeProgress(double progress) {
