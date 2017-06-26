@@ -67,6 +67,7 @@ public class VideoTrackTranscoder implements TrackTranscoder {
             throw new IllegalStateException(e);
         }
         mEncoder.configure(mOutputFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
+
         mEncoderInputSurfaceWrapper = new InputSurface(mEncoder.createInputSurface());
         mEncoderInputSurfaceWrapper.makeCurrent();
         mEncoder.start();
