@@ -17,6 +17,7 @@ package net.ypresto.androidtranscoder.utils;
 
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
+import android.util.Log;
 
 public class MediaExtractorUtils {
 
@@ -41,6 +42,9 @@ public class MediaExtractorUtils {
         trackResult.mVideoTrackIndex = -1;
         trackResult.mAudioTrackIndex = -1;
         int trackCount = extractor.getTrackCount();
+
+        Log.i("Transcoder", "track count" + trackCount); // debug
+
         for (int i = 0; i < trackCount; i++) {
             MediaFormat format = extractor.getTrackFormat(i);
             String mime = format.getString(MediaFormat.KEY_MIME);
