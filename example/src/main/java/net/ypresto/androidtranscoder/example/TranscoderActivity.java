@@ -16,7 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import net.ypresto.androidtranscoder.MediaTranscoder;
+import net.ypresto.androidtranscoder.format.MediaFormatStrategy;
 import net.ypresto.androidtranscoder.format.MediaFormatStrategyPresets;
+import net.ypresto.androidtranscoder.format.RequiredDimensions;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -112,7 +114,8 @@ public class TranscoderActivity extends Activity {
                     };
                     Log.d(TAG, "transcoding into " + file);
                     mFuture = MediaTranscoder.getInstance().transcodeVideo(fileDescriptor, file.getAbsolutePath(),
-                            MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
+                            //MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
+                            MediaFormatStrategyPresets.createAndroidSelected16By9FormatStrategy(RequiredDimensions.Dimensions16By9.dim640x360, 850 * 1024), listener);
                     switchButtonEnabled(true);
                 }
                 break;

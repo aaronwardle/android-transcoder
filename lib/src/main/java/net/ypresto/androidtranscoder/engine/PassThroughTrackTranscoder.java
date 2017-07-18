@@ -79,7 +79,7 @@ public class PassThroughTrackTranscoder implements TrackTranscoder {
         mBufferInfo.set(0, sampleSize, mExtractor.getSampleTime(), flags);
         mMuxer.writeSampleData(mSampleType, mBuffer, mBufferInfo);
         mWrittenPresentationTimeUs = mBufferInfo.presentationTimeUs;
-
+//AW
         mExtractor.advance();
         return true;
     }
